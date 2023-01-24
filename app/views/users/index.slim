@@ -1,0 +1,27 @@
+.table-responsive
+  table.table.table-striped.table-sm
+    thead
+      tr
+        th[scope="col"]
+          | #
+        th[scope="col"]
+          | Name
+        th[scope="col"]
+          | Email
+        th[scope="col"]
+          | Status
+        th[scope="col"]
+          | Role
+    tbody
+      - @users.map do |n|
+        tr
+          td
+            = n.id
+          td
+            = n.name
+          td
+            = n.email
+          td
+            = n.status
+          td
+            = n.role
