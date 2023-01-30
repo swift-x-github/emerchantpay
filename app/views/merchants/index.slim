@@ -1,0 +1,32 @@
+.container
+  .table-responsive
+    table.table.table-striped.table-sm
+      thead
+        tr
+          th[scope="col"]
+            | #
+          th[scope="col"]
+            | Name
+          th[scope="col"]
+            | Email
+          th[scope="col"]
+            | Status
+          th[scope="col"]
+            | Role
+          th[scope="col"]
+            | Balance
+      tbody
+        - @merchants.map do |n|
+          tr
+            td
+              = link_to n.id, merchant_transactions_path(n), class: 'btn btn-primary'
+            td
+              = n.name
+            td
+              = n.email
+            td
+              = n.status
+            td
+              = n.role
+            td
+              = n.balance
