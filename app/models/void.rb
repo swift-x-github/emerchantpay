@@ -1,0 +1,2 @@
+class Void < Transaction
+end
