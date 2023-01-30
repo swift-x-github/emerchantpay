@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     sequence(:email) { |n| "email#{n}@example.com" }
@@ -5,7 +7,7 @@ FactoryBot.define do
     status { 'active' }
     role { 'admin' }
   end
-  
+
   trait(:dummy) do
     transient do
       model { User }
@@ -16,7 +18,6 @@ FactoryBot.define do
     end
   end
 
-
   factory :admin, parent: :user do
     role { :admin }
     status { 'active' }
@@ -26,5 +27,4 @@ FactoryBot.define do
     role { :merchant }
     status { 'active' }
   end
-
 end

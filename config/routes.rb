@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  root "users#index"
+  root 'users#index'
   get 'transactions', to: 'transactions#index'
   get 'merchants', to: 'merchants#index'
   get 'admins', to: 'admins#index'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   scope :api, module: :api, defaults: { format: :json } do
-    resources :transactions, only: [:create, :update, :show] do
+    resources :transactions, only: %i[create update show] do
       post :create
     end
   end

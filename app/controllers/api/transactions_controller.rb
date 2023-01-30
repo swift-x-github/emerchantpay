@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class TransactionsController < ApplicationController
     protect_from_forgery with: :null_session
@@ -6,7 +8,7 @@ module Api
     def create
       ::Transactions::AddTransaction.new.create(permit_params)
     end
-   
+
     private
 
     def permit_params
@@ -14,6 +16,5 @@ module Api
         :type, :user_id, :amount, :customer_email, :customer_phone, :transaction_id, :notification_url
       )
     end
-
   end
 end

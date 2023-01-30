@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe User, type: :model do
   describe 'validations' do
-    let(:user) { create(:user, email: 'Test@test.rb', name: "John Doe") }
+    let(:user) { create(:user, email: 'Test@test.rb', name: 'John Doe') }
 
     context 'when email' do
       it 'should have validations' do

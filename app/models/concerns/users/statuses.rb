@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Users
   module Statuses
     extend ActiveSupport::Concern
-  
+
     included do
       scope :connected, -> { where(status: %i[active inactive]) }
       scope :active, -> { where(status: :active) }

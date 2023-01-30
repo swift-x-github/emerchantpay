@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BaseValidator
   NAME_MIN_LEN = 1
   NAME_MAX_LEN = 25

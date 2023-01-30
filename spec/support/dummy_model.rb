@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DummyModel
   SUPPORTED_ENTITIES = %i[
     user

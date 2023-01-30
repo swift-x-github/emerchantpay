@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Transactions
   module Users
     extend ActiveSupport::Concern
@@ -7,4 +9,3 @@ module Transactions
     end
   end
 end
-  

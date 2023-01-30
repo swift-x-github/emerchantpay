@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe Users::Roles, type: :model do
@@ -12,7 +14,7 @@ describe Users::Roles, type: :model do
   describe 'scopes' do
     describe '.merchants' do
       let!(:merchant) { create(:merchant, :dummy, model: model) }
-      
+
       it 'should include only merchants' do
         expect(model.merchants.count).to eq 1
         expect(model.merchants).to match_array [merchant]

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class CreateTransactions < ActiveRecord::Migration[7.0]
   def change
     enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
-    create_table :transactions, id: :uuid  do |t|
+    create_table :transactions, id: :uuid do |t|
       t.belongs_to :user, null: false, foreign_key: true, index: true
       t.uuid :transaction_id, index: true
       t.float 'amount'

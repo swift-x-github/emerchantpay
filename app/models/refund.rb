@@ -1,2 +1,4 @@
-class Refund < Transaction 
+# frozen_string_literal: true
+
+class Refund < Transaction
 end

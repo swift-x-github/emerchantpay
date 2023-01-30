@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe ApplicationRecord, type: :model do
@@ -16,7 +18,7 @@ describe ApplicationRecord, type: :model do
     it_should_behave_like 'match success', "swift'x.777@gmail.com"
     it_should_behave_like 'match success', 'x@x.x'
     it_should_behave_like 'match success', 'swiftç@gmail.com'
-    
+
     it_should_behave_like 'not match success', '@'
     it_should_behave_like 'not match success', 'x@x'
     it_should_behave_like 'not match success', 'email'
