@@ -1,0 +1,44 @@
+.container
+  .table-responsive
+    table.table.table-striped.table-sm
+      thead
+        tr
+          th[scope="col"]
+            | id
+          th[scope="col"]
+            | related transaction_id
+          th[scope="col"]
+            | Amount
+          th[scope="col"]
+            | Description
+          th[scope="col"]
+            | Client Email
+          th[scope="col"]
+            | Client Phone
+          th[scope="col"]
+            | Status
+          th[scope="col"]
+            | Created_at
+          th[scope="col"]
+            | Updated_at
+      tbody
+        - @transactions.map do |transaction|
+          tr
+            td
+              = transaction.id
+            td
+              = transaction.transaction_id
+            td
+              = transaction.amount
+            td
+              = transaction.description
+            td
+              = transaction.customer_email
+            td
+              = transaction.customer_phone
+            td
+              = transaction.status
+            td
+              = transaction.created_at
+            td
+              = transaction.updated_at
