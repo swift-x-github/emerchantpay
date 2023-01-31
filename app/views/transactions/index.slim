@@ -18,6 +18,8 @@
           th[scope="col"]
             | Status
           th[scope="col"]
+            | Type  
+          th[scope="col"]
             | Created_at
           th[scope="col"]
             | Updated_at
@@ -38,6 +40,8 @@
               = transaction.customer_phone
             td
               = transaction.status
+            td
+              = transaction.type
             td
               = transaction.created_at
             td

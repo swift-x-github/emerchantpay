@@ -6,7 +6,8 @@ module Transactions
 
     def perform(transaction_id, amount, notification_url, customer_email, merchant)
       uri = URI(notification_url)
-      res = Net::HTTP.post_form(uri, 'customer_email' => customer_email, 'amount' => amount)
+      res = Net::HTTP.post_form(uri, 'customer_email' => customer_email, 
+                                'amount' => amount, 'user_role' => 'customer')
       result = JSON.parse(res.body)['data']['attributes']['allow_capture']
 
       if result == true
