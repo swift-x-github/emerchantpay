@@ -6,7 +6,7 @@ class User < ApplicationRecord
   include Users::Validations
   include Users::Transactions
 
-  def to_param
-    id.to_s
-  end
+  # def to_param
+  #   id.to_s
+  # end
 end

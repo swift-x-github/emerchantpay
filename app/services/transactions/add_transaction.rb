@@ -74,6 +74,30 @@ module Transactions
             )
           end
         end
+      when 'Void'
+        ActiveRecord::Base.transaction do
+          source_authorized_transaction = Transaction.authorized
+                                                     .find_by(id: params[:transaction_id])
+          if source_authorized_transaction.approved?
+            transaction = Transaction
+                          .create!(
+                            user_id: source_authorized_transaction.user_id,
+                            amount: params[:amount],
+                            customer_email: source_authorized_transaction.customer_email,
+                            customer_phone: source_authorized_transaction.customer_phone,
+                            transaction_id: params[:transaction_id],
+                            notification_url: source_authorized_transaction.notification_url,
+                            type: params[:type],
+                            status: :voided
+                          )
+          ::Transactions::Void
+          .perform_later(
+            transaction.id,
+            params[:transaction_id]
+          )
+          end
+
+        end
       end
     end
   end
